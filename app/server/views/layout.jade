@@ -1,0 +1,54 @@
+doctype html
+html
+	head
+		title #{title}
+		link(rel='stylesheet', href='/vendor/bootstrap.min.css')
+		link(rel='stylesheet', href='/css/app.css')
+		link(rel='stylesheet', href='/vendor/font-awesome.min.css')
+		link(rel='stylesheet', href='/vendor/bootstrap-colorpicker.min.css')
+		link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Roboto:300,700')
+		link(rel='stylesheet', href='/vendor/animate.css')
+
+	body
+		nav.navbar.navbar-toggleable-md.navbar-inverse.bg-primary.fixed-top
+			button.navbar-toggler.navbar-toggler-right(type='button', data-toggle='collapse', data-target='#navbarNavDropdown')
+				span.navbar-toggler-icon
+			a.navbar-brand(href='/') notchat
+			#navbarNavDropdown.collapse.navbar-collapse
+				if typeof(udata) != 'undefined'
+					ul.navbar-nav.mr-auto
+						li.nav-item
+							a.nav-link(href='/') Home
+						li.nav-item.dropdown
+							a.nav-link.dropdown-toggle(href='#',data-toggle='dropdown') Rooms
+							.dropdown-menu
+								if typeof(rdata) != 'undefined'
+									h6.dropdown-header Public
+									- for (var i = 0; i < rdata.length; i++)
+										a.dropdown-item.join(href='#',data-room='#{rdata[i]._id}')= rdata[i].name
+						li.nav-item
+							a.nav-link(href='/') Dock
+					ul.navbar-nav
+						li.nav-item.dropdown
+							a.nav-link.dropdown-toggle(href='#', data-toggle='dropdown') #{udata.user}
+							.dropdown-menu
+								a.dropdown-item(href='/room/settings') Manage Room
+								a.dropdown-item(href='/settings') Settings
+								div.dropdown-divider
+								a#btn-logout.dropdown-item.text-muted(href='#') Logout
+				else
+					ul.navbar-nav
+						li.nav-item
+							a.nav-link(href='/register') Sign Up
+						li.nav-item
+							a.nav-link(href='/login') Login
+
+		#chat.container-fluid
+			block content
+
+		script(src='/vendor/jquery.min.js')
+		script(src='/vendor/jquery.form.min.js')
+		script(src='/vendor/tether.min.js')
+		script(src='/vendor/bootstrap.min.js')
+		script(src='/socket.io/socket.io.js')
+		block scripts

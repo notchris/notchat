@@ -1,0 +1,29 @@
+// preset form values if we receive a roomdata object //
+- room = typeof(rdata) != 'undefined' ? rdata : { }
+- user = typeof(udata) != 'undefined' ? udata : { }
+// store the roomId on the client side in a hidden input field //
+input(type='hidden', value= room._id)#roomId
+input(type='hidden', value= user._id)#userId
+#room-form-container
+	form(method="post")#room-form.form-horizontal
+		.form-group
+			label.control-label.col-sm-3 Room Name
+			.col-sm-9
+				input.form-control#room-name(type='text', name='name', value=room.name)
+		.form-group
+			label.control-label.col-sm-3 Room Description
+			.col-sm-9
+				textarea.form-control#room-desc(name='desc', value=room.desc, rows='3') #{room.desc}
+		.form-group
+			label.control-label.col-sm-3 Room Type
+			.col-sm-9
+				select.form-control#room-type(name='type')
+					option Public
+					option Private
+			br
+		.form-buttons
+			button(type='submit')#room-form-btn2.btn.btn-primary.btn-block Update
+		.clearfix
+
+// display form errors in a custom modal window //
+include modals/form-errors

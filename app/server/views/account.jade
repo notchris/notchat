@@ -1,0 +1,40 @@
+// preset form values if we receive a userdata object //
+- user = typeof(udata) != 'undefined' ? udata : { }
+// store the userId on the client side in a hidden input field //
+input(type='hidden', value= user._id)#userId
+
+#account-form-container
+	form(method="post")#account-form.form-horizontal
+		.form-group
+			label.control-label.col-sm-3 Name
+			.col-sm-9
+				input.form-control#name-tf(type='text', name='name', value= user.name)
+
+		.form-group
+			label.control-label.col-sm-3 Email
+			.col-sm-9
+				input.form-control#email-tf(type='text', name='email', value= user.email)
+
+		.form-group
+			label.control-label.col-sm-3 Location
+			.col-sm-9
+				select.form-control#country-list(name='country')
+					each item in countries
+						option(selected=item.name == user.country)= item.name
+						
+		.form-group
+			label.control-label.col-sm-3 Username
+			.col-sm-9
+				input.form-control#user-tf(type='text', name='user', value= user.user).disabled
+
+		.form-group
+			label.control-label.col-sm-3 Password
+			.col-sm-9
+				input.form-control#pass-tf(type='password', name='pass', value='')
+		br
+		.form-buttons
+			button(type='submit')#account-form-btn2.btn.btn-primary.btn-block Update
+		.clearfix
+
+// display form errors in a custom modal window //
+include modals/form-errors

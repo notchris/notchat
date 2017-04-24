@@ -1,0 +1,27 @@
+
+extends layout
+
+block content
+	.row
+		.col.col-12
+			h2 Settings
+			hr
+	.row
+		.col.col-3
+			h4 User Photo
+			img.img-thumbnail.img-responsive(src='/uploads/fullsize/#{udata.user}.jpg')
+			br
+			br
+			form(method='post',action='/upload',enctype='multipart/form-data')
+				input.form-control-file(type='file',name='image')
+				br
+				button.btn.btn-primary.btn-block(type='submit') Upload
+		.col.col-9
+			h4 User Information
+			include account
+
+	include modals/alert
+	include modals/confirm
+
+block scripts
+	script(src='/js/form-validators/accountValidator.js')

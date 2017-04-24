@@ -1,0 +1,42 @@
+extends layout
+
+block content
+	- for (var i = 0; i < accts.length; i++)
+		if (accts[i].user === acct)
+			.row
+				.col.col-12
+					h2 Users 
+						small.text-muted= accts[i].user
+					hr
+			.row
+				.col.col-3
+					img.img-thumbnail.img-responsive(src='/uploads/fullsize/#{udata.user}.jpg')
+				.col.col-6
+					.card
+						.card-header Information
+						ul.list-group
+							li.list-group-item
+								strong Name:&nbsp;
+								span= accts[i].name
+							li.list-group-item
+								strong Location:&nbsp;
+								span= accts[i].country
+							li.list-group-item  
+								strong Registered:&nbsp;
+								span= accts[i].date.split(',')[0]
+				.col.col-3
+					.card
+						.card-header Badges
+						.card-block 
+		else
+			.row
+				.col.col-12
+					h2 User not found
+					hr
+					p This user either never existed or existed at one point and somehow became non-existent.
+
+
+	include modals/alert
+	include modals/confirm
+
+block scripts

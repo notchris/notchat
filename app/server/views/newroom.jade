@@ -1,0 +1,15 @@
+
+extends layout
+
+block content
+	.row
+	.col.col-12
+		h2 Create Room
+		hr
+		include room
+		include modals/alert
+
+block scripts
+	script(src='/js/views/room.js')
+	script(src='/js/controllers/roomController.js')
+	script(src='/js/form-validators/roomValidator.js')

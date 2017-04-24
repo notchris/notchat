@@ -1,0 +1,18 @@
+
+extends layout
+
+block content
+	.row
+		.col.col-12
+			h2 Room Settings
+			hr
+	.row
+		.col.col-12
+			h4 Room Settings
+			include room
+
+	include modals/alert
+	include modals/confirm
+
+block scripts
+	script(src='/js/form-validators/roomValidator.js')

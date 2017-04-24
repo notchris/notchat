@@ -1,0 +1,41 @@
+
+var socket = io.connect('http://localhost:3000', {
+    transports: ['websocket'],
+    upgrade: false
+});
+
+socket.on('connect', function(data){
+    socket.emit('adduser');
+});
+
+$(document).ready(function() {
+
+    var chat = new Vue({
+        el: '#chat',
+        data: {
+            users: [],
+            rooms: [],
+            active: [],
+            messages: []
+        },
+        methods: {
+            message: function(username, room, data, time, color, event) {
+                chat.messages.push({
+                    user: username,
+                    room: room,
+                    message: data,
+                    time: time,
+                    color: color 
+                })
+            },
+            joinRoom: function(room, event) {
+                chat.rooms.push(room)
+                socket.emit('joinRoom', room);
+            },
+            leaveRoom: function(room, event) {
+
+            }
+        }
+    });
+
+});

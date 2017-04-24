@@ -1,0 +1,245 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+body{
+	margin-top:75px;
+	font-family: "Roboto", sans-serif; 
+	font-weight: normal;
+    line-height: 1.5;
+	-webkit-font-smoothing: antialiased;
+}
+
+a.navbar-brand{
+	font-size:1.3em;
+}
+
+h1,h2,h3,h4,h5{
+	font-weight:normal;
+}
+
+#room{
+	max-height:360px;
+	overflow-y:scroll;
+	padding-bottom:50px;
+	height:360px;
+}
+
+#room li{
+	min-height:50px;
+	border-left:none !important;
+	border-right:none !important;
+}
+
+#room li:first-child{
+	min-height:70px !important;
+}
+
+#room li span{
+	font-weight:normal;
+}
+
+#room li:last-child{
+	border-bottom:none !important;
+}
+
+.card-footer{
+	padding:.75rem 1rem;
+}
+
+.available{
+	visibility: hidden;
+}
+
+.sidebar{
+	background:#EEE;
+	border-right:1px solid #DDD;
+	position:fixed;
+	top:52px;
+	left:0;
+	bottom:0;
+	z-index:100;
+	padding-top:22px;
+}
+
+div.users{
+	max-height:325px;
+	overflow-y:scroll;
+}
+
+div.users table tbody tr{
+	min-height:48px;
+	border:0;
+}
+
+.compose{
+	background:#F3F3F3;
+	border-top:1px solid #DDD;
+	position:fixed;
+	bottom:0;
+	z-index:100;
+	left:0;
+	height:60px;
+}
+
+.compose .input-group{
+	padding-top:10px;
+}
+
+ul.messages{
+	max-height:350px;
+	overflow-y:scroll;
+}
+
+ul.messages li{
+	min-height:48px;
+	border:0;
+}
+
+ul.messages li:last-child{
+	margin-bottom:40px;
+}
+
+ul.messages li span:first-child{
+	font-weight:bold;
+	padding-right:6px;
+}
+
+h6.dropdown-header{
+	font-weight:bold;
+}
+
+.dropdown-divider{
+	margin: .25em 0;
+}
+
+.nav-pills .nav-link{
+	background:#FFF;
+	color:#292b2c;
+	border:1px solid #ccc;
+	margin-right:6px;
+}
+
+.nav-pills .nav-link span.badge{
+	margin-left:6px;
+}
+
+.broadcast{
+	width:100%;
+	height:200px;
+	background:#CCC;
+}
+
+.broadcast iframe{
+	width:100%;
+	height:200px;
+}
+
+#lock{
+	margin-right:4px;
+}
+
+div.users button{
+	color:#333333 !important;
+}
+
+.popover-content ul li{
+	font-weight:bold;
+}
+
+#stopBroadcast{
+	display:none;
+}
+
+#userid{
+	display:none !important;
+}
+
+li.message a{
+	font-weight:bold;
+}
+
+#color span{
+	height:37px;
+}
+
+.colorpicker{
+    position: relative !important;
+    top: -180px !important;
+}
+
+#data{
+	display:block !important;
+	max-height:37px !important;
+}
+
+a.author{
+	color:#333;
+}
+a.author:hover{
+	color:#999;
+}
+
+.time{
+	position:absolute;
+	right:0;
+	padding-right:15px;
+	color:#999;
+}
+
+span.description{
+	color:#999;
+}
+
+.profilePhoto{
+	margin-bottom:6px;
+}
+
+.profileBlock{
+	float:left !important;
+}
+
+ul.profileInfo li span{
+	font-weight:bold;
+	padding-right:6px;
+}
+
+span.closeRoom{
+	padding-left:10px;
+	opacity:0.6;
+}
+span.closeRoom:hover{
+	opacity:1.0;
+}
+
+.room ul li:first-child span:first-child{
+	width:100%;
+	font-weight:bold;
+}
+
+.room ul li{
+	font-size:0.9em;
+}
+
+.room{
+	margin-bottom:20px;         
+}
+
+.room{
+	max-height:250px;
+	overflow-y:scroll;
+}
+
+.roomContainer{
+	border:0 !important;
+	box-shadow:none !important;
+}
+
+.roomContainer .card-header{
+	border:1px solid #DDD;
+}
+
+.roomlist li:first-child a span{
+	display:none !important;
+}
+
+.roomlist li a span:hover{
+	cursor:pointer;
+}

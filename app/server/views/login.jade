@@ -1,0 +1,46 @@
+
+extends layout
+
+block content
+	.row
+		.col.col-6
+			.card
+				.card-header Welcome
+				.card-block
+					h3
+						strong welcome to notchat
+					p.lead notchat is a video broadcasting experiment using webrtc and nodejs.
+
+		.col.col-6
+			.card
+				.card-header Login
+				.card-block
+					#login
+						form(id='form-login', method='post')
+							.form-group
+								label Username
+								input.form-control(type='text', id='user-tf', name='user')
+							.form-group
+								label Password
+								input.form-control(type='password', id='pass-tf', name='pass')
+							.controls
+								button(type='submit').btn.btn-primary.btn-block.button-sign-in
+									| Login
+							.clearfix
+							br
+							ul.list-inline.text-center
+								li#create-account.list-inline-item
+									a(href='/register') Create Account
+								li.list-inline-item.text-muted -
+								li#forgot-password.list-inline-item
+									a(href='#') Recover Account
+							.clearfix
+
+	include modals/alert
+	include modals/lost-password
+
+block scripts
+	script(src='/js/views/login.js')
+	script(src='/js/controllers/loginController.js')
+	script(src='/js/form-validators/loginValidator.js')
+	script(src='/js/form-validators/emailValidator.js')

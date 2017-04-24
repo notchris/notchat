@@ -1,0 +1,91 @@
+extends layout
+
+block content
+
+	.row
+		.col.col-3.sidebar
+			.row
+				.col.col-12
+					.card
+						.card-header
+							a(href='#').text-muted #{udata.user}
+						#myBroadcast.broadcast
+						.card-footer
+							button.btn.btn-primary(type='button',id="startBroadcast",data-user="#{udata.user}") Start Broadcast
+							button.btn.btn-danger(type='button',id="stopBroadcast") Stop Broadcast
+							button#settings.btn.btn-secondary.float-right(type='button')
+								i.fa.fa-cog
+					br
+					.card
+						.card-header
+							ul.nav.nav-pills.card-header-pills
+								li.nav-item
+									a.nav-link.active(href='#')
+										i.fa.fa-user
+								li.nav-item
+									a.nav-link(href='#')
+										i.fa.fa-eye
+						.users
+							table.table
+								tbody
+
+		.col.col-9.offset-sm-3.main
+			.row
+				.col.col-3
+					.card
+						.card-header
+							a(href='#').text-muted Test
+							a(href='#').text-muted.float-right
+								i.fa.fa-times
+						.broadcast
+				.col.col-3
+					.card
+						.card-header
+							a(href='#').text-muted Test
+							a(href='#').text-muted.float-right
+								i.fa.fa-times
+						.broadcast
+				.col.col-3
+					.card
+						.card-header
+							a(href='#').text-muted Test
+							a(href='#').text-muted.float-right
+								i.fa.fa-times
+						.broadcast
+				.col.col-3
+					.card
+						.card-header
+							a(href='#').text-muted Test
+							a(href='#').text-muted.float-right
+								i.fa.fa-times
+						.broadcast
+			br
+			.row
+				.col.col-12
+					.card.roomContainer
+						.card-header
+							ul.nav.nav-pills.card-header-pills.roomlist
+
+						.tab-content.roomcontent
+
+
+		.compose.col.col-9.offset-sm-3
+			.input-group
+				#color.colorpicker-component
+					input(type='text',value='#00AABB',style='display:none;')
+					span.input-group-addon
+						i
+				input#data.form-control(type='text',broadcast='Type a message...')
+				span.input-group-btn
+					button#send.btn.btn-primary(type='button') Send
+
+	include modals/alert
+	include modals/confirm
+	include modals/user
+
+block scripts
+	script(src='/js/views/home.js')
+	script(src='/js/controllers/homeController.js')
+	script(src='/js/form-validators/accountValidator.js')
+	script(src='/js/views/chat.js')
+	script(src='/vendor/bootstrap-colorpicker.min.js')

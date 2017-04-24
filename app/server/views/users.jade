@@ -1,0 +1,24 @@
+
+extends layout
+
+block content
+	.row
+		.col.col-12
+			h2 Users
+			hr
+	.row
+		.col.col-12
+			ul.list-group
+				- for (var i = 0; i < accts.length; i++)
+					li.list-group-item
+						.col.col-1
+							h5= i+1
+						.col.col-2
+							img.img-thumbnail.img-responsive.avatar(src='/uploads/fullsize/#{udata.user}.jpg')
+						.col.col-3
+							h5
+								a(href='/users/#{udata.user}')= accts[i].user
+						.col.col-3
+							h5= accts[i].country
+						.col.col-3
+							h5= accts[i].date.split(',')[0]

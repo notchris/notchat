@@ -1,0 +1,15 @@
+
+extends layout
+
+block content
+	.row
+	.col.col-12
+		h2 Create Account
+		hr
+		include account
+		include modals/alert
+
+block scripts
+	script(src='/js/views/signup.js')
+	script(src='/js/controllers/signupController.js')
+	script(src='/js/form-validators/accountValidator.js')
